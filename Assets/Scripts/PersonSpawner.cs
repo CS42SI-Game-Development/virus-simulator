@@ -18,17 +18,21 @@ public class PersonSpawner : MonoBehaviour
     /// where each represents a distinct "Person" object.
     /// </summary>
     /// <param name="numPeople">The number of spawned people.</param>
-    public void SpawnPeople(int numPeople)
+    void SpawnPeople(int numPeople)
     {
         for (int i = 0; i < numPeople; i++)
         {
-
-            // TODO: Write your code here!
-            // Note that this is already inside of the for-loop, so you
-            // only need to handle creating one Person object, and then
-            // randomizing its position.
-
+            SpawnPerson();
         }
+    }
+
+    void SpawnPerson()
+    {
+        GameObject person = Instantiate(PersonPrefab);
+
+        Vector3 randomPosition = new (Random.Range(-6f, 6f), Random.Range(-5f, 5f));
+
+        person.transform.position = randomPosition;
     }
 
 }
